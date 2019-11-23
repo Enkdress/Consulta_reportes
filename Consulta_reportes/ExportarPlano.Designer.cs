@@ -30,7 +30,6 @@
         {
             this.btnExport = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtQueryResult = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtFileName = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
@@ -55,7 +54,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.txtQueryResult);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btnExport);
             this.panel1.Controls.Add(this.txtFileName);
@@ -64,19 +62,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(469, 820);
             this.panel1.TabIndex = 3;
-            // 
-            // txtQueryResult
-            // 
-            this.txtQueryResult.AutoSize = true;
-            this.txtQueryResult.Font = new System.Drawing.Font("Segoe UI Historic", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQueryResult.ForeColor = System.Drawing.Color.Brown;
-            this.txtQueryResult.Location = new System.Drawing.Point(124, 502);
-            this.txtQueryResult.Name = "txtQueryResult";
-            this.txtQueryResult.Size = new System.Drawing.Size(79, 25);
-            this.txtQueryResult.TabIndex = 3;
-            this.txtQueryResult.Text = "URL File";
-            this.txtQueryResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.txtQueryResult.Visible = false;
             // 
             // label2
             // 
@@ -114,6 +99,5 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtFileName;
-        private System.Windows.Forms.Label txtQueryResult;
     }
 }

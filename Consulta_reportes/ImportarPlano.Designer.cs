@@ -75,7 +75,7 @@
             this.btnImport.FlatAppearance.BorderSize = 0;
             this.btnImport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(186)))), ((int)(((byte)(34)))));
             this.btnImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnImport.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImport.Font = new System.Drawing.Font("Segoe UI", 22F);
             this.btnImport.ForeColor = System.Drawing.Color.White;
             this.btnImport.Location = new System.Drawing.Point(53, 429);
             this.btnImport.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);

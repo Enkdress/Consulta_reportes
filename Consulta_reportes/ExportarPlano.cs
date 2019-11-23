@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
-using System.Linq;
+using System.Data.SqlClient;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Connection;
 
 namespace Consulta_reportes
 {
@@ -21,21 +19,19 @@ namespace Consulta_reportes
         private void btnExport_Click(object sender, EventArgs e)
         {
             string fileName = txtFileName.Text;
-            string sql = "EXEC sp_generar_tmov " + fileName;
-            RequestDataBase reqDB = new RequestDataBase();
-            DataSet result = reqDB.SqlReq(sql);
+            ConectionDB con = new ConectionDB();
+            con.SqlConnect();//ABRIR CONEXION
 
-            try
-            {
-                txtQueryResult.Text = result.Tables[0].Rows[0][0].ToString();
-                txtQueryResult.Visible = true;
-            }
-            catch
-            {
-                txtQueryResult.Text = "No se pudo obtener la ruta";
-                txtQueryResult.Visible = true;
-            }
-            
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "sp_generar_tmov";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@PLANO", fileName);
+
+            cmd.ExecuteNonQuery();
+
+            cmd.Parameters.Clear();
+
+            con.SqlCloseConection();//CERRAR CONEXION
         }
     }
 }

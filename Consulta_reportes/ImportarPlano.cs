@@ -1,11 +1,8 @@
-﻿using System;
-using System.Drawing;
+﻿using Connection;
+using System;
 using System.Data;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
-using Connection;
+using System.Windows.Forms;
 
 namespace Consulta_reportes
 {
@@ -52,7 +49,9 @@ namespace Consulta_reportes
             cmd.ExecuteNonQuery();
 
             cmd.Parameters.Clear();
-        } 
+
+            con.SqlCloseConection();
+        }
 
         private string openFile()
         {
@@ -61,21 +60,13 @@ namespace Consulta_reportes
 
             string initialPath = Environment.GetEnvironmentVariable("userprofile"); //Establece la ruta inicial del cuadro de dialogo
             openFile.InitialDirectory = initialPath + "/Desktop";
-            string Path = "";
-            try
-            {
-                openFile.ShowDialog();
-                if(DialogResult.Abort == true)
-                {
-                    MessageBox.Show("Elige un archivo");
-                }
-                Path = openFile.FileName;
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("No se pudo obtener el archivo"+ex);
-            }
-            
+            string Path;
+
+
+            openFile.ShowDialog();
+            Path = openFile.FileName;
+
+
             return Path;
         }
 
@@ -83,6 +74,7 @@ namespace Consulta_reportes
         //QUE LO MUESTRE EN EL TEXTBOX
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("xxxxxxxxxxxxxxxxxxxxxx");
             string path = openFile();
             txtPath.Text = path;
         }
@@ -94,21 +86,25 @@ namespace Consulta_reportes
             {
                 string path;
                 //swapForm(false, true);
-                DialogResult clearDataBase = MessageBox.Show("¿Desea limpiar la base de datos?", "Procesando...", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                DialogResult clearDataBase = MessageBox.Show
+                    ("¿Desea limpiar la base de datos?", "Procesando...", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                 switch (clearDataBase)
                 {
                     //EN ESTA PARTE DEL CODIGO HAY MUCHOS BUG!!!!
                     case DialogResult.Yes:
                         txtPath.Clear();
-                        DialogResult isThereAnotherFile = MessageBox.Show("¿Quieres importar otro archivo?", "Procesando...", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        
+                        DialogResult isThereAnotherFile = MessageBox.Show
+                            ("¿Quieres importar otro archivo?", "Procesando...", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
                         switch (isThereAnotherFile)
                         {
                             case DialogResult.Yes:
-                                userResponse = "2";
                                 path = openFile();
-
-                                executeSp(path, userResponse);//EJECUCION DEL SP
+                                if (path != "")
+                                {
+                                    userResponse = "2";
+                                    executeSp(path, userResponse);//EJECUCION DEL SP
+                                }
 
                                 txtPath.Clear();
 
@@ -119,7 +115,7 @@ namespace Consulta_reportes
                                 executeSp(txtPath.Text, userResponse);//EJECUCION DEL SP
 
                                 txtPath.Clear();
-                                
+
                                 break;
                         }
 
@@ -136,7 +132,7 @@ namespace Consulta_reportes
             }
             else
             {
-                MessageBox.Show("Debe haber una ruta de archivo","Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Debe haber una ruta de archivo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }

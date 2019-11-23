@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
 using System.Data;
-using System.Linq;
+using System.Data.SqlClient;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Connection;
 
 namespace Consulta_reportes
 {
@@ -21,9 +19,19 @@ namespace Consulta_reportes
         {
             if (txtProjection.Text != "")
             {
-                RequestDataBase reqDB = new RequestDataBase();
-                string cmd = "EXEC sp_aplica_proyeccion " + txtProjection.Text;
-                DataSet DS = reqDB.SqlReq(cmd);
+                ConectionDB con = new ConectionDB();
+                con.SqlConnect();
+
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "sp_aplica_proyeccion";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.AddWithValue("@PROYECCION", txtProjection.Text);
+                cmd.ExecuteNonQuery();
+
+                cmd.Parameters.Clear();
+
+                con.SqlCloseConection();
             }
             else
             {
