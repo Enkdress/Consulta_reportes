@@ -65,11 +65,15 @@ namespace Consulta_reportes
             try
             {
                 openFile.ShowDialog();
+                if(DialogResult.Abort == true)
+                {
+                    MessageBox.Show("Elige un archivo");
+                }
                 Path = openFile.FileName;
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("No se pudo obtener el archivo");
+                MessageBox.Show("No se pudo obtener el archivo"+ex);
             }
             
             return Path;
