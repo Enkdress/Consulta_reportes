@@ -32,6 +32,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.txtFileName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnExam = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +56,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.btnExam);
             this.panel1.Controls.Add(this.btnExport);
             this.panel1.Controls.Add(this.txtFileName);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -79,6 +83,30 @@
             this.txtFileName.Size = new System.Drawing.Size(148, 38);
             this.txtFileName.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(40, 247);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(203, 32);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Seleccione la ruta";
+            // 
+            // btnExam
+            // 
+            this.btnExam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(67)))), ((int)(((byte)(96)))));
+            this.btnExam.FlatAppearance.BorderSize = 0;
+            this.btnExam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExam.Font = new System.Drawing.Font("Segoe UI", 18F);
+            this.btnExam.ForeColor = System.Drawing.Color.White;
+            this.btnExam.Location = new System.Drawing.Point(249, 232);
+            this.btnExam.Name = "btnExam";
+            this.btnExam.Size = new System.Drawing.Size(166, 54);
+            this.btnExam.TabIndex = 2;
+            this.btnExam.Text = "Examinar";
+            this.btnExam.UseVisualStyleBackColor = false;
+            this.btnExam.Click += new System.EventHandler(this.btnExam_Click);
+            // 
             // ExportarPlano
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -99,5 +127,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtFileName;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnExam;
     }
 }

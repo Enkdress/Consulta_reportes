@@ -40,9 +40,7 @@
             this.pnlTopBar = new System.Windows.Forms.Panel();
             this.appMinimize = new System.Windows.Forms.PictureBox();
             this.appClose = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.pnlBarMenu.SuspendLayout();
-            this.pnlContainer.SuspendLayout();
             this.pnlTopBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.appMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appClose)).BeginInit();
@@ -170,7 +168,6 @@
             // 
             this.pnlContainer.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pnlContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlContainer.Controls.Add(this.button1);
             this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlContainer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnlContainer.Location = new System.Drawing.Point(188, 38);
@@ -196,7 +193,7 @@
             // appMinimize
             // 
             this.appMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.appMinimize.Image = ((System.Drawing.Image)(resources.GetObject("appMinimize.Image")));
+            this.appMinimize.Image = global::Consulta_reportes.Properties.Resources.minimize_window_38px;
             this.appMinimize.Location = new System.Drawing.Point(585, 3);
             this.appMinimize.Name = "appMinimize";
             this.appMinimize.Size = new System.Drawing.Size(31, 32);
@@ -210,7 +207,7 @@
             // appClose
             // 
             this.appClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.appClose.Image = ((System.Drawing.Image)(resources.GetObject("appClose.Image")));
+            this.appClose.Image = global::Consulta_reportes.Properties.Resources.close_window_38px;
             this.appClose.Location = new System.Drawing.Point(623, 3);
             this.appClose.Name = "appClose";
             this.appClose.Size = new System.Drawing.Size(31, 32);
@@ -220,15 +217,6 @@
             this.appClose.Click += new System.EventHandler(this.appClose_Click);
             this.appClose.MouseLeave += new System.EventHandler(this.mouseLeave);
             this.appClose.MouseHover += new System.EventHandler(this.mouseHover);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(30, 18);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(397, 745);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // MainPage
             // 
@@ -247,7 +235,6 @@
             this.Text = "Reportes";
             this.pnlBarMenu.ResumeLayout(false);
             this.pnlBarMenu.PerformLayout();
-            this.pnlContainer.ResumeLayout(false);
             this.pnlTopBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.appMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appClose)).EndInit();
@@ -268,7 +255,6 @@
         private System.Windows.Forms.PictureBox appMinimize;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
     }
 }
 

@@ -63,6 +63,26 @@ namespace Consulta_reportes.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap close_window_38px {
+            get {
+                object obj = ResourceManager.GetObject("close_window_38px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap close_window_38pxasdas {
+            get {
+                object obj = ResourceManager.GetObject("close_window_38pxasdas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_document_48 {
             get {
                 object obj = ResourceManager.GetObject("icons8_document_48", resourceCulture);
@@ -73,9 +93,19 @@ namespace Consulta_reportes.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap import_50px {
+        internal static System.Drawing.Bitmap minimize_window_38px {
             get {
-                object obj = ResourceManager.GetObject("import_50px", resourceCulture);
+                object obj = ResourceManager.GetObject("minimize_window_38px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap minimize_window_38pxasdas {
+            get {
+                object obj = ResourceManager.GetObject("minimize_window_38pxasdas", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

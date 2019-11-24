@@ -95,7 +95,9 @@ namespace Consulta_reportes
             {
                 if (btn.Name == "appClose")
                 {
+
                     btn.Image = Image.FromFile("Resources/close_window_38pxasdas.png");
+                   
                 }
                 else
                 {

@@ -11,6 +11,9 @@ namespace Consulta_reportes
     public partial class ExportarPlano : UserControl
     {
 
+        private string computerName;
+        private string folderPath;
+
         public ExportarPlano()
         {
             InitializeComponent();
@@ -20,18 +23,39 @@ namespace Consulta_reportes
         {
             string fileName = txtFileName.Text;
             ConectionDB con = new ConectionDB();
-            con.SqlConnect();//ABRIR CONEXION
+            computerName = con.GetComputerName();
+            try
+            {
+                con.SqlConnect();//ABRIR CONEXION
 
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "sp_generar_tmov";
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@PLANO", fileName);
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = con.GetConnection();
+                cmd.CommandText = "sp_generar_tmov";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@NOMBRE_DEL_EQUIPO", computerName);
+                cmd.Parameters.AddWithValue("@RUTA", folderPath);
+                cmd.Parameters.AddWithValue("@NOMBRE", fileName);
+                
 
-            cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
 
-            cmd.Parameters.Clear();
+                cmd.Parameters.Clear();
+                MessageBox.Show("Se ejecutó con exito.", "Ejecución correcta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error en la conexion o ejecucion: " + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
             con.SqlCloseConection();//CERRAR CONEXION
+        }
+
+        private void btnExam_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folder = new FolderBrowserDialog();
+            folder.ShowDialog();
+
+            folderPath = folder.SelectedPath;
         }
     }
 }
