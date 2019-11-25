@@ -63,19 +63,9 @@ namespace Consulta_reportes.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap close_window_38px {
+        internal static System.Drawing.Bitmap icons8_delete_sign_100px {
             get {
-                object obj = ResourceManager.GetObject("close_window_38px", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap close_window_38pxasdas {
-            get {
-                object obj = ResourceManager.GetObject("close_window_38pxasdas", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_delete_sign_100px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,19 +83,9 @@ namespace Consulta_reportes.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap minimize_window_38px {
+        internal static System.Drawing.Bitmap icons8_minus_math_100px {
             get {
-                object obj = ResourceManager.GetObject("minimize_window_38px", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap minimize_window_38pxasdas {
-            get {
-                object obj = ResourceManager.GetObject("minimize_window_38pxasdas", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_minus_math_100px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

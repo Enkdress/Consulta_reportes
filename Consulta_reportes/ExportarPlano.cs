@@ -40,6 +40,7 @@ namespace Consulta_reportes
                 cmd.ExecuteNonQuery();
 
                 cmd.Parameters.Clear();
+                txtFileName.Clear();
                 MessageBox.Show("Se ejecutó con exito.", "Ejecución correcta", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch(Exception ex)

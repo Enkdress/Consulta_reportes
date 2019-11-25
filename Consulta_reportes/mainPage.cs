@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Consulta_reportes
@@ -88,54 +85,14 @@ namespace Consulta_reportes
             }
         }
 
-        private void mouseHover(object sender, EventArgs e)
-        {
-            PictureBox btn = (PictureBox)sender;
-            try
-            {
-                if (btn.Name == "appClose")
-                {
-
-                    btn.Image = Image.FromFile("./Resources/close_window_38pxasdas.png");
-                   
-                }
-                else
-                {
-                    btn.Image = Image.FromFile("./Resources/minimize_window_38pxasdas.png");
-                }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        private void mouseLeave(object sender, EventArgs e)
-        {
-            PictureBox btn = (PictureBox)sender;
-            try
-            {
-                if (btn.Name == "appClose")
-                {
-                    btn.Image = Image.FromFile("./Resources/close_window_38px.png");
-                }
-                else
-                {
-                    btn.Image = Image.FromFile("./Resources/minimize_window_38px.png");
-                }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
+     
         private void appClose_Click(object sender, EventArgs e)
         {
             DialogResult confirmClose = MessageBox.Show("Seguro que desea salir de la aplicación?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             switch (confirmClose)
             {
                 case DialogResult.Yes:
-                    this.Close();
+                    Application.Exit();
                     break;
             }
         }

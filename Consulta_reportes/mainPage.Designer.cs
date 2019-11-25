@@ -38,12 +38,12 @@
             this.btnImport = new System.Windows.Forms.Button();
             this.pnlContainer = new System.Windows.Forms.Panel();
             this.pnlTopBar = new System.Windows.Forms.Panel();
-            this.appMinimize = new System.Windows.Forms.PictureBox();
-            this.appClose = new System.Windows.Forms.PictureBox();
+            this.btnMinimize = new System.Windows.Forms.PictureBox();
+            this.btnClose = new System.Windows.Forms.PictureBox();
             this.pnlBarMenu.SuspendLayout();
             this.pnlTopBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.appMinimize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBarMenu
@@ -179,8 +179,8 @@
             // pnlTopBar
             // 
             this.pnlTopBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(67)))), ((int)(((byte)(96)))));
-            this.pnlTopBar.Controls.Add(this.appMinimize);
-            this.pnlTopBar.Controls.Add(this.appClose);
+            this.pnlTopBar.Controls.Add(this.btnMinimize);
+            this.pnlTopBar.Controls.Add(this.btnClose);
             this.pnlTopBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTopBar.Location = new System.Drawing.Point(0, 0);
             this.pnlTopBar.Margin = new System.Windows.Forms.Padding(0);
@@ -190,33 +190,30 @@
             this.pnlTopBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDown);
             this.pnlTopBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mouseUp);
             // 
-            // appMinimize
+            // btnMinimize
             // 
-            this.appMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.appMinimize.Image = global::Consulta_reportes.Properties.Resources.minimize_window_38px;
-            this.appMinimize.Location = new System.Drawing.Point(585, 3);
-            this.appMinimize.Name = "appMinimize";
-            this.appMinimize.Size = new System.Drawing.Size(31, 32);
-            this.appMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.appMinimize.TabIndex = 0;
-            this.appMinimize.TabStop = false;
-            this.appMinimize.Click += new System.EventHandler(this.appMinimize_Click);
-            this.appMinimize.MouseLeave += new System.EventHandler(this.mouseLeave);
-            this.appMinimize.MouseHover += new System.EventHandler(this.mouseHover);
+            this.btnMinimize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimize.Image")));
+            this.btnMinimize.Location = new System.Drawing.Point(583, 5);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(28, 26);
+            this.btnMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnMinimize.TabIndex = 0;
+            this.btnMinimize.TabStop = false;
+            this.btnMinimize.Click += new System.EventHandler(this.appMinimize_Click);
             // 
-            // appClose
+            // btnClose
             // 
-            this.appClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.appClose.Image = global::Consulta_reportes.Properties.Resources.close_window_38px;
-            this.appClose.Location = new System.Drawing.Point(623, 3);
-            this.appClose.Name = "appClose";
-            this.appClose.Size = new System.Drawing.Size(31, 32);
-            this.appClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.appClose.TabIndex = 0;
-            this.appClose.TabStop = false;
-            this.appClose.Click += new System.EventHandler(this.appClose_Click);
-            this.appClose.MouseLeave += new System.EventHandler(this.mouseLeave);
-            this.appClose.MouseHover += new System.EventHandler(this.mouseHover);
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.Location = new System.Drawing.Point(617, 5);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(28, 26);
+            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnClose.TabIndex = 0;
+            this.btnClose.TabStop = false;
+            this.btnClose.Click += new System.EventHandler(this.appClose_Click);
             // 
             // MainPage
             // 
@@ -236,8 +233,8 @@
             this.pnlBarMenu.ResumeLayout(false);
             this.pnlBarMenu.PerformLayout();
             this.pnlTopBar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.appMinimize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -251,10 +248,10 @@
         private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.Panel pnlContainer;
         private System.Windows.Forms.Panel pnlTopBar;
-        private System.Windows.Forms.PictureBox appClose;
-        private System.Windows.Forms.PictureBox appMinimize;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox btnMinimize;
+        private System.Windows.Forms.PictureBox btnClose;
     }
 }
 

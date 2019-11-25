@@ -121,16 +121,10 @@
   <data name="icons8_document_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_document_48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="close_window_38px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\close_window_38px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8_delete_sign_100px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8_delete_sign_100px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="close_window_38pxasdas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\close_window_38pxasdas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="minimize_window_38px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\minimize_window_38px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="minimize_window_38pxasdas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\minimize_window_38pxasdas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8_minus_math_100px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8_minus_math_100px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
