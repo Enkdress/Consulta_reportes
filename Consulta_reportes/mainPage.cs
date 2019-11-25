@@ -96,12 +96,12 @@ namespace Consulta_reportes
                 if (btn.Name == "appClose")
                 {
 
-                    btn.Image = Image.FromFile("Resources/close_window_38pxasdas.png");
+                    btn.Image = Image.FromFile("./Resources/close_window_38pxasdas.png");
                    
                 }
                 else
                 {
-                    btn.Image = Image.FromFile("Resources/minimize_window_38pxasdas.png");
+                    btn.Image = Image.FromFile("./Resources/minimize_window_38pxasdas.png");
                 }
             }
             catch(Exception ex)
@@ -116,11 +116,11 @@ namespace Consulta_reportes
             {
                 if (btn.Name == "appClose")
                 {
-                    btn.Image = Image.FromFile("/Resources/close_window_38px.png");
+                    btn.Image = Image.FromFile("./Resources/close_window_38px.png");
                 }
                 else
                 {
-                    btn.Image = Image.FromFile("/Resources/minimize_window_38px.png");
+                    btn.Image = Image.FromFile("./Resources/minimize_window_38px.png");
                 }
             }
             catch(Exception ex)
