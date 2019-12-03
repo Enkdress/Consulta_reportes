@@ -48,6 +48,7 @@
             // 
             // pnlBarMenu
             // 
+            this.pnlBarMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnlBarMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(67)))), ((int)(((byte)(96)))));
             this.pnlBarMenu.Controls.Add(this.label1);
             this.pnlBarMenu.Controls.Add(this.btnParams);
@@ -108,6 +109,7 @@
             this.btnReports.Text = "Informes";
             this.btnReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReports.UseVisualStyleBackColor = false;
+            this.btnReports.Click += new System.EventHandler(this.openModule);
             // 
             // btnExport
             // 
@@ -166,6 +168,7 @@
             // 
             // pnlContainer
             // 
+            this.pnlContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pnlContainer.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pnlContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlContainer.Dock = System.Windows.Forms.DockStyle.Fill;

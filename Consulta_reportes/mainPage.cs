@@ -17,6 +17,7 @@ namespace Consulta_reportes
         private void openModule(object sender, EventArgs e)
         {
             Button btnModule = (Button)sender;
+            pnlContainer.SuspendLayout();
             switch (btnModule.Name)//EN TEORIA ESTE SWITCH MUESTRA EL CONTENIDO DE CADA BOTOS/FORMULARIO
             {
                 case "btnImport":
@@ -51,7 +52,20 @@ namespace Consulta_reportes
                     exportar.Width = pnlContainer.Width;
                     exportar.Height = pnlContainer.Height;
                     break;
+
+                case "btnReports":
+
+                    setActiveButtonFormColor(btnModule);
+
+                    pnlContainer.Controls.Clear();
+                    Report report = new Report();
+                    pnlContainer.Controls.Add(report);
+                    report.Width = pnlContainer.Width;
+                    report.Height = pnlContainer.Height;
+                    break;
             }
+
+            pnlContainer.ResumeLayout(true);
         }
 
 
