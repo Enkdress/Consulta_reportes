@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.IO;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.Drawing.Printing;
 using System.Data;
@@ -17,6 +18,8 @@ namespace Consulta_reportes
         private string path = "C:/Users/Public/Documents/";
         private string fileName = "Tickt";
         private string machineName = Environment.GetEnvironmentVariable("computername");
+
+
         private string stringToPrint;
         private PrintDocument documentToPrint;
 
@@ -27,14 +30,13 @@ namespace Consulta_reportes
         public Report()
         {
             InitializeComponent();
+            initialDatePicker.Focus();
         }
 
         private void createPrintFile()
         {
             conection = new ConectionDB();
             conection.SqlConnect();
-
-
             
             try
             {
@@ -50,12 +52,14 @@ namespace Consulta_reportes
 
                 cmd.Parameters.Clear();
 
-                conection.SqlCloseConection();
+                
             }
             catch (Exception err)
             {
-                MessageBox.Show("No se pudo crear el archivo de texto con los datos del comprobante");
+                MessageBox.Show("No se pudo crear el archivo de texto con los datos del comprobante, "+ err.Message);
             }
+
+            conection.SqlCloseConection();
         }
 
         private void printTicket(object sender, EventArgs e)
@@ -67,7 +71,6 @@ namespace Consulta_reportes
             int year = initialDatePicker.Value.Year;
             int month = initialDatePicker.Value.Month;
             int day = initialDatePicker.Value.Day;
-
             string ticketDate = year.ToString() + month.ToString() + day.ToString(); //DATOS CONCATENADOS PARA EL PARAMETRO
 
             //****CONSECUTIVO DEL COMPROBANTE****
@@ -75,7 +78,6 @@ namespace Consulta_reportes
 
             //****HORA DEL CIERRE DEL COMPROBANTE****
             string closeTime = cmbCloseTime.Text;
-
 
             //step 1 ejecutar sp del informe
             conection = new ConectionDB();
@@ -102,59 +104,36 @@ namespace Consulta_reportes
             }
             catch (Exception err)
             {
-                MessageBox.Show("No se pudo generar el reporte");
+                MessageBox.Show("No se pudo generar el reporte: "+ err.Message);
             }
 
             //step 2 Crear el archivo
             createPrintFile();
 
-            //step 3 LEER EL ARCHIVO E IMPRIMIRLO
-            FileStream fileStream = new FileStream(path + fileName+".txt", FileMode.Open);
-            StreamReader reader = new StreamReader(fileStream);
-            stringToPrint = reader.ReadToEnd();
-            documentToPrint = new PrintDocument();
-            var printers = PrinterSettings.InstalledPrinters;
 
-            foreach (var printer in printers)
+            string BATprint = "B:/Escritorio/archivo.bat";
+            //step 3 LEER EL ARCHIVO E IMPRIMIRLO
+
+            try
             {
-                if(printer.ToString() == "Generic")
-                {
-                    documentToPrint.PrinterSettings.PrinterName = "Generic";
-                }
+                string script = @"print /D:LPT1  C:\Users\Public\Documents\Tickt.txt";
+
+                File.WriteAllText(BATprint, script);
+                
+                Process.Start(BATprint);
+            }
+            catch(Exception err)
+            {
+                MessageBox.Show("Error: " + err.Message);
             }
 
-            documentToPrint.DefaultPageSettings.Margins.Left = 50;
-            documentToPrint.PrintPage += new PrintPageEventHandler(printPage);
-            documentToPrint.Print();
-            fileStream.Close();
-            reader.Close();
+
 
             //step 4 LO ELIMINA DESPUES DE IMPRIMIRLO
-            File.Delete(path + fileName);
+            //File.Delete(path + fileName + ".txt");
+            ///File.Delete(BATprint);
         }
 
-        private void printPage(object sender, PrintPageEventArgs e)
-        {
-            int charactersOnPage = 0;
-            int linesPerPage = 0;
-            Graphics graphics = e.Graphics;
-
-            // Sets the value of charactersOnPage to the number of characters 
-            // of stringToPrint that will fit within the bounds of the page.
-            graphics.MeasureString(stringToPrint, this.Font,
-                e.MarginBounds.Size, StringFormat.GenericTypographic,
-                out charactersOnPage, out linesPerPage);
-
-            // Draws the string within the bounds of the page
-            graphics.DrawString(stringToPrint, this.Font, Brushes.Black,
-                e.MarginBounds, StringFormat.GenericTypographic);
-
-            // Remove the portion of the string that has been printed.
-            stringToPrint = stringToPrint.Substring(charactersOnPage);
-
-            // Check to see if more pages are to be printed.
-            e.HasMorePages = (stringToPrint.Length > 0);
-        }
 
     }
 }

@@ -23,8 +23,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>6</ApplicationRevision>
-    <ApplicationVersion>0.1.0.%2a</ApplicationVersion>
+    <UpdateUrl>http://eltemplodelamoda.com.co/setup/</UpdateUrl>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>0.1.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -121,6 +123,12 @@
     <Compile Include="Report.Designer.cs">
       <DependentUpon>Report.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserConfig.Designer.cs">
+      <DependentUpon>UserConfig.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ExportarPlano.resx">
       <DependentUpon>ExportarPlano.cs</DependentUpon>
     </EmbeddedResource>
@@ -141,6 +149,9 @@
     <EmbeddedResource Include="Report.resx">
       <DependentUpon>Report.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserConfig.resx">
+      <DependentUpon>UserConfig.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Consulta_reportes_TemporaryKey.pfx" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -157,6 +168,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\imp.bat" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

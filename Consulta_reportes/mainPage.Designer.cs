@@ -87,10 +87,11 @@
             this.btnParams.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnParams.Name = "btnParams";
             this.btnParams.Size = new System.Drawing.Size(188, 83);
-            this.btnParams.TabIndex = 5;
+            this.btnParams.TabIndex = 4;
             this.btnParams.Text = "Opciones";
             this.btnParams.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnParams.UseVisualStyleBackColor = false;
+            this.btnParams.Click += new System.EventHandler(this.openModule);
             // 
             // btnReports
             // 
@@ -105,7 +106,7 @@
             this.btnReports.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnReports.Name = "btnReports";
             this.btnReports.Size = new System.Drawing.Size(188, 83);
-            this.btnReports.TabIndex = 4;
+            this.btnReports.TabIndex = 3;
             this.btnReports.Text = "Informes";
             this.btnReports.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReports.UseVisualStyleBackColor = false;
@@ -120,7 +121,7 @@
             this.btnExport.Location = new System.Drawing.Point(0, 166);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(188, 83);
-            this.btnExport.TabIndex = 6;
+            this.btnExport.TabIndex = 2;
             this.btnExport.Text = "Exportar plano";
             this.btnExport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExport.UseVisualStyleBackColor = true;
@@ -139,7 +140,7 @@
             this.btnProjetion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnProjetion.Name = "btnProjetion";
             this.btnProjetion.Size = new System.Drawing.Size(188, 83);
-            this.btnProjetion.TabIndex = 3;
+            this.btnProjetion.TabIndex = 1;
             this.btnProjetion.Text = "Generar proyección";
             this.btnProjetion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnProjetion.UseVisualStyleBackColor = false;

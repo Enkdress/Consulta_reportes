@@ -63,6 +63,17 @@ namespace Consulta_reportes
                     report.Width = pnlContainer.Width;
                     report.Height = pnlContainer.Height;
                     break;
+
+                case "btnParams":
+
+                    setActiveButtonFormColor(btnModule);
+
+                    pnlContainer.Controls.Clear();
+                    UserConfig config = new UserConfig();
+                    pnlContainer.Controls.Add(config);
+                    config.Width = pnlContainer.Width;
+                    config.Height = pnlContainer.Height;
+                    break;
             }
 
             pnlContainer.ResumeLayout(true);
@@ -138,7 +149,6 @@ namespace Consulta_reportes
         #endregion MovimientoDeLaVentana
 
         #endregion Cosasdelaventana
-
     }
 
 
