@@ -19,10 +19,6 @@ namespace Consulta_reportes
         private string fileName = "Tickt";
         private string machineName = Environment.GetEnvironmentVariable("computername");
 
-
-        private string stringToPrint;
-        private PrintDocument documentToPrint;
-
         private ConectionDB conection;
         private SqlCommand cmd;
 
@@ -111,27 +107,27 @@ namespace Consulta_reportes
             createPrintFile();
 
 
-            string BATprint = "B:/Escritorio/archivo.bat";
-            //step 3 LEER EL ARCHIVO E IMPRIMIRLO
 
+            //step 3 LEER EL ARCHIVO E IMPRIMIRLO
+            string batName = "imprimir.bat";
             try
             {
                 string script = @"print /D:LPT1  C:\Users\Public\Documents\Tickt.txt";
 
-                File.WriteAllText(BATprint, script);
+                File.WriteAllText(path+batName, script);
                 
-                Process.Start(BATprint);
+                Process.Start(path + batName).WaitForExit();
             }
             catch(Exception err)
             {
-                MessageBox.Show("Error: " + err.Message);
+                MessageBox.Show("Error: " + err.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
 
 
             //step 4 LO ELIMINA DESPUES DE IMPRIMIRLO
-            //File.Delete(path + fileName + ".txt");
-            ///File.Delete(BATprint);
+            File.Delete(path + fileName + ".txt");
+            File.Delete(path + batName);
         }
 
 
