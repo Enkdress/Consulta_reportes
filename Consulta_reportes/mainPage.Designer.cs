@@ -32,6 +32,7 @@
             this.pnlBarMenu = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btnParams = new System.Windows.Forms.Button();
+            this.btnTickets = new System.Windows.Forms.Button();
             this.btnReports = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnProjetion = new System.Windows.Forms.Button();
@@ -52,6 +53,7 @@
             this.pnlBarMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(67)))), ((int)(((byte)(96)))));
             this.pnlBarMenu.Controls.Add(this.label1);
             this.pnlBarMenu.Controls.Add(this.btnParams);
+            this.pnlBarMenu.Controls.Add(this.btnTickets);
             this.pnlBarMenu.Controls.Add(this.btnReports);
             this.pnlBarMenu.Controls.Add(this.btnExport);
             this.pnlBarMenu.Controls.Add(this.btnProjetion);
@@ -83,7 +85,7 @@
             this.btnParams.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btnParams.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnParams.ForeColor = System.Drawing.Color.White;
-            this.btnParams.Location = new System.Drawing.Point(0, 332);
+            this.btnParams.Location = new System.Drawing.Point(0, 415);
             this.btnParams.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnParams.Name = "btnParams";
             this.btnParams.Size = new System.Drawing.Size(188, 83);
@@ -92,6 +94,25 @@
             this.btnParams.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnParams.UseVisualStyleBackColor = false;
             this.btnParams.Click += new System.EventHandler(this.openModule);
+            // 
+            // btnTickets
+            // 
+            this.btnTickets.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(67)))), ((int)(((byte)(96)))));
+            this.btnTickets.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTickets.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnTickets.FlatAppearance.BorderSize = 0;
+            this.btnTickets.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnTickets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTickets.ForeColor = System.Drawing.Color.White;
+            this.btnTickets.Location = new System.Drawing.Point(0, 332);
+            this.btnTickets.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnTickets.Name = "btnTickets";
+            this.btnTickets.Size = new System.Drawing.Size(188, 83);
+            this.btnTickets.TabIndex = 5;
+            this.btnTickets.Text = "Facturas";
+            this.btnTickets.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTickets.UseVisualStyleBackColor = false;
+            this.btnTickets.Click += new System.EventHandler(this.openModule);
             // 
             // btnReports
             // 
@@ -256,6 +277,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox btnMinimize;
         private System.Windows.Forms.PictureBox btnClose;
+        private System.Windows.Forms.Button btnTickets;
     }
 }
 

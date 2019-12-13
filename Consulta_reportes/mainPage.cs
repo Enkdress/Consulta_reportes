@@ -64,6 +64,17 @@ namespace Consulta_reportes
                     report.Height = pnlContainer.Height;
                     break;
 
+                case "btnTickets":
+
+                    setActiveButtonFormColor(btnModule);
+
+                    pnlContainer.Controls.Clear();
+                    PrintTickets tickets = new PrintTickets();
+                    pnlContainer.Controls.Add(tickets);
+                    tickets.Width = pnlContainer.Width;
+                    tickets.Height = pnlContainer.Height;
+                    break;
+
                 case "btnParams":
 
                     setActiveButtonFormColor(btnModule);

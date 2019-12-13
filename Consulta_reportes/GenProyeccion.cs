@@ -41,7 +41,7 @@ namespace Consulta_reportes
                     double LabelX = (this.Location.X) * 0.8;
                     double LabelY = (this.Location.Y) * 0.2;
                     Label err = new Label();
-                    err.Text = "No se pudo ejecutar correctamente: "+ ex;
+                    err.Text = "No se pudo ejecutar correctamente: "+ ex.Message;
                     err.Visible = true;
                     err.ForeColor = Color.Red;
                     err.Location = new Point(Convert.ToInt32(LabelX), Convert.ToInt32(LabelY));

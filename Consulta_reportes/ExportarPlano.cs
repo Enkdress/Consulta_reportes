@@ -45,7 +45,7 @@ namespace Consulta_reportes
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Error en la conexion o ejecucion: " + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error en la conexion o ejecucion: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             con.SqlCloseConection();//CERRAR CONEXION

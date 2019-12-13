@@ -1,20 +1,17 @@
 ﻿using System;
-using System.Collections;
-using System.IO;
-using System.Diagnostics;
-using System.Collections.Generic;
-using System.Drawing.Printing;
 using System.Data;
 using System.Windows.Forms;
-using Connection;
 using System.Data.SqlClient;
-using System.Drawing;
+using Connection;
+using System.IO;
+using System.Diagnostics;
+using System.Drawing.Printing;
 
 namespace Consulta_reportes
 {
-    public partial class Report : UserControl
+    public partial class PrintTickets : UserControl
     {
-        private string cmdText = "SP_IMP_COMP_DIARIO";
+        private string cmdText = "SP_EXEC_IMP_FACTURAS";
         private string path = "C:/Users/Public/Documents/";
         private string fileName = "Tickt";
         private string machineName = Environment.GetEnvironmentVariable("computername");
@@ -23,16 +20,17 @@ namespace Consulta_reportes
         private SqlCommand cmd;
 
 
-        public Report()
+        public PrintTickets()
         {
             InitializeComponent();
         }
+
 
         private void createPrintFile()
         {
             conection = new ConectionDB();
             conection.SqlConnect();
-            
+
             try
             {
                 cmd = new SqlCommand();
@@ -47,34 +45,38 @@ namespace Consulta_reportes
 
                 cmd.Parameters.Clear();
 
-                
+
             }
             catch (Exception err)
             {
-                MessageBox.Show("No se pudo crear el archivo de texto con los datos del comprobante, "+ err.Message);
+                MessageBox.Show("No se pudo crear el archivo de texto con los datos de la factura, " + err.Message);
             }
 
             conection.SqlCloseConection();
         }
 
+
         private void printTicket(object sender, EventArgs e)
         {
 
             //step 0 obtención de los datos
+            string initConsec = txtInitConsec.Text;
 
-            //****DATOS DE LA FECHA**** 
-            int year = initialDatePicker.Value.Year;
-            int month = initialDatePicker.Value.Month;
-            int day = initialDatePicker.Value.Day;
-            string ticketDate = year.ToString() + month.ToString() + day.ToString(); //DATOS CONCATENADOS PARA EL PARAMETRO
+            string finConsec = txtFinConcec.Text;
 
-            //****CONSECUTIVO DEL COMPROBANTE****
-            string idTicket = txtIdTicket.Text;
+            string actualTime;
+                if(txtTime.Text == "")
+                {
+                    actualTime = new DateTime().Hour + ":" + new DateTime().Minute + ":" + new DateTime().Second;
+                }
+                else
+                {
+                    actualTime = txtTime.Text;
+                }
 
-            //****HORA DEL CIERRE DEL COMPROBANTE****
-            string closeTime = cmbCloseTime.Text;
 
-            //step 1 ejecutar sp del informe
+            string docType = txtDoc.Text;
+            //step 1 ejecutar sp de la factura
             conection = new ConectionDB();
             conection.SqlConnect();
 
@@ -82,13 +84,13 @@ namespace Consulta_reportes
             {
                 cmd = new SqlCommand();
                 cmd.Connection = conection.GetConnection();
-                cmd.CommandText = "SP_IMP_COMP_DIARIO";
+                cmd.CommandText = cmdText;
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@NUMLIBRO", idTicket);
-                cmd.Parameters.AddWithValue("@FECHACOMPDIARIO", ticketDate);
-                cmd.Parameters.AddWithValue("@FECHACIERREDIARIO", ticketDate);
-                cmd.Parameters.AddWithValue("@HORACIERREDIARIO", closeTime);
+                cmd.Parameters.AddWithValue("@TIPODOC_FACT", docType);
+                cmd.Parameters.AddWithValue("@NUMERO_INI", initConsec);
+                cmd.Parameters.AddWithValue("@NUMERO_FIN", finConsec);
+                cmd.Parameters.AddWithValue("@HORA", actualTime);
 
                 cmd.ExecuteNonQuery();
 
@@ -99,13 +101,11 @@ namespace Consulta_reportes
             }
             catch (Exception err)
             {
-                MessageBox.Show("No se pudo generar el reporte: "+ err.Message);
+                MessageBox.Show("No se pudo generar la factura: " + err.Message);
             }
 
             //step 2 Crear el archivo
             createPrintFile();
-
-
 
             //step 3 LEER EL ARCHIVO E IMPRIMIRLO
             string batName = "imprimir.bat";
@@ -113,11 +113,11 @@ namespace Consulta_reportes
             {
                 string script = @"print /D:LPT1 C:\Users\Public\Documents\Tickt.txt";
 
-                File.WriteAllText(path+batName, script);
-                
+                File.WriteAllText(path + batName, script);
+
                 Process.Start(path + batName).WaitForExit();
             }
-            catch(Exception err)
+            catch (Exception err)
             {
                 MessageBox.Show("Error: " + err.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -128,7 +128,6 @@ namespace Consulta_reportes
             File.Delete(path + fileName + ".txt");
             File.Delete(path + batName);
         }
-
 
     }
 }

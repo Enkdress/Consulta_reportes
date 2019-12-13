@@ -30,10 +30,10 @@
         {
             this.btnExport = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtFileName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnExam = new System.Windows.Forms.Button();
+            this.txtFileName = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,22 +67,6 @@
             this.panel1.Size = new System.Drawing.Size(469, 820);
             this.panel1.TabIndex = 3;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(40, 328);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(227, 32);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Nombre del archivo";
-            // 
-            // txtFileName
-            // 
-            this.txtFileName.Location = new System.Drawing.Point(267, 328);
-            this.txtFileName.Name = "txtFileName";
-            this.txtFileName.Size = new System.Drawing.Size(148, 38);
-            this.txtFileName.TabIndex = 0;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -92,20 +76,37 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Seleccione la ruta";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(40, 328);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(227, 32);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Nombre del archivo";
+            // 
             // btnExam
             // 
             this.btnExam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(67)))), ((int)(((byte)(96)))));
             this.btnExam.FlatAppearance.BorderSize = 0;
             this.btnExam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExam.Font = new System.Drawing.Font("Segoe UI", 18F);
+            this.btnExam.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExam.ForeColor = System.Drawing.Color.White;
-            this.btnExam.Location = new System.Drawing.Point(249, 232);
+            this.btnExam.Location = new System.Drawing.Point(249, 247);
             this.btnExam.Name = "btnExam";
-            this.btnExam.Size = new System.Drawing.Size(166, 54);
+            this.btnExam.Size = new System.Drawing.Size(166, 39);
             this.btnExam.TabIndex = 2;
             this.btnExam.Text = "Examinar";
+            this.btnExam.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnExam.UseVisualStyleBackColor = false;
             this.btnExam.Click += new System.EventHandler(this.btnExam_Click);
+            // 
+            // txtFileName
+            // 
+            this.txtFileName.Location = new System.Drawing.Point(267, 328);
+            this.txtFileName.Name = "txtFileName";
+            this.txtFileName.Size = new System.Drawing.Size(148, 38);
+            this.txtFileName.TabIndex = 0;
             // 
             // ExportarPlano
             // 
