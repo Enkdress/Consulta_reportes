@@ -22,6 +22,16 @@ namespace Connection
 
         private SqlConnection connect = new SqlConnection(cdn);
 
+        public SqlConnection GetConnection()
+        {
+            return connect;
+        }
+
+        public string GetComputerName()
+        {
+            return machineName;
+        }
+
         public void SqlConnect()
         {
             connect.Open();

@@ -30,8 +30,9 @@
         {
             this.btnExport = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtQueryResult = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnExam = new System.Windows.Forms.Button();
             this.txtFileName = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -55,8 +56,9 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.txtQueryResult);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.btnExam);
             this.panel1.Controls.Add(this.btnExport);
             this.panel1.Controls.Add(this.txtFileName);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -65,18 +67,14 @@
             this.panel1.Size = new System.Drawing.Size(469, 820);
             this.panel1.TabIndex = 3;
             // 
-            // txtQueryResult
+            // label1
             // 
-            this.txtQueryResult.AutoSize = true;
-            this.txtQueryResult.Font = new System.Drawing.Font("Segoe UI Historic", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQueryResult.ForeColor = System.Drawing.Color.Brown;
-            this.txtQueryResult.Location = new System.Drawing.Point(124, 502);
-            this.txtQueryResult.Name = "txtQueryResult";
-            this.txtQueryResult.Size = new System.Drawing.Size(79, 25);
-            this.txtQueryResult.TabIndex = 3;
-            this.txtQueryResult.Text = "URL File";
-            this.txtQueryResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.txtQueryResult.Visible = false;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(40, 247);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(203, 32);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Seleccione la ruta";
             // 
             // label2
             // 
@@ -86,6 +84,22 @@
             this.label2.Size = new System.Drawing.Size(227, 32);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre del archivo";
+            // 
+            // btnExam
+            // 
+            this.btnExam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(67)))), ((int)(((byte)(96)))));
+            this.btnExam.FlatAppearance.BorderSize = 0;
+            this.btnExam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExam.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExam.ForeColor = System.Drawing.Color.White;
+            this.btnExam.Location = new System.Drawing.Point(249, 247);
+            this.btnExam.Name = "btnExam";
+            this.btnExam.Size = new System.Drawing.Size(166, 39);
+            this.btnExam.TabIndex = 2;
+            this.btnExam.Text = "Examinar";
+            this.btnExam.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnExam.UseVisualStyleBackColor = false;
+            this.btnExam.Click += new System.EventHandler(this.btnExam_Click);
             // 
             // txtFileName
             // 
@@ -114,6 +128,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtFileName;
-        private System.Windows.Forms.Label txtQueryResult;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnExam;
     }
 }

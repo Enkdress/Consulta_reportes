@@ -63,6 +63,16 @@ namespace Consulta_reportes.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_delete_sign_100px {
+            get {
+                object obj = ResourceManager.GetObject("icons8_delete_sign_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_document_48 {
             get {
                 object obj = ResourceManager.GetObject("icons8_document_48", resourceCulture);
@@ -73,9 +83,9 @@ namespace Consulta_reportes.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap import_50px {
+        internal static System.Drawing.Bitmap icons8_minus_math_100px {
             get {
-                object obj = ResourceManager.GetObject("import_50px", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_minus_math_100px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

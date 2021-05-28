@@ -1,11 +1,8 @@
-﻿using System;
-using System.Drawing;
+﻿using Connection;
+using System;
 using System.Data;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
-using Connection;
+using System.Windows.Forms;
 
 namespace Consulta_reportes
 {
@@ -41,37 +38,47 @@ namespace Consulta_reportes
         private void executeSp(string path, string numArchivos)
         {
             ConectionDB con = new ConectionDB();
-            con.SqlConnect();
+            try
+            {
+                con.SqlConnect();
 
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = Sp;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@RUTA", path);
-            cmd.Parameters.AddWithValue("@NUMARCHIVOS", numArchivos);
+                SqlCommand cmd = new SqlCommand();
+                //CONFIG OF THE COMMAND
+                cmd.Connection = con.GetConnection();
+                cmd.CommandText = Sp;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@RUTA", path);
+                cmd.Parameters.AddWithValue("@NUMARCHIVOS", numArchivos);
 
-            cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
 
-            cmd.Parameters.Clear();
-        } 
+                cmd.Parameters.Clear();
 
-        private string openFile()
+                MessageBox.Show("Se ejecutó con exito.", "Ejecución correcta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error en la conexion o ejecucion: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            con.SqlCloseConection();
+        }
+
+        private string pathName()
         {
             OpenFileDialog openFile = new OpenFileDialog();
 
 
             string initialPath = Environment.GetEnvironmentVariable("userprofile"); //Establece la ruta inicial del cuadro de dialogo
             openFile.InitialDirectory = initialPath + "/Desktop";
-            string Path = "";
-            try
-            {
-                openFile.ShowDialog();
-                Path = openFile.FileName;
-            }
-            catch
-            {
-                MessageBox.Show("No se pudo obtener el archivo");
-            }
-            
+            string Path;
+
+
+            openFile.ShowDialog();
+            Path = openFile.FileName;
+
+            txtPath.Text = Path;
+
             return Path;
         }
 
@@ -79,7 +86,7 @@ namespace Consulta_reportes
         //QUE LO MUESTRE EN EL TEXTBOX
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            string path = openFile();
+            string path = pathName();
             txtPath.Text = path;
         }
 
@@ -88,51 +95,52 @@ namespace Consulta_reportes
 
             if (pathIsEmpty())
             {
-                string path;
-                //swapForm(false, true);
-                DialogResult clearDataBase = MessageBox.Show("¿Desea limpiar la base de datos?", "Procesando...", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                string path = null;
+
+                DialogResult clearDataBase = MessageBox.Show
+                    ("¿Desea limpiar los datos?", "Procesando...", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                 switch (clearDataBase)
                 {
-                    //EN ESTA PARTE DEL CODIGO HAY MUCHOS BUG!!!!
                     case DialogResult.Yes:
-                        txtPath.Clear();
-                        DialogResult isThereAnotherFile = MessageBox.Show("¿Quieres importar otro archivo?", "Procesando...", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        
-                        switch (isThereAnotherFile)
+
+                        if(MessageBox.Show
+                            ("¿Quieres importar otro archivo?", "Procesando...", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                            == DialogResult.Yes)
                         {
-                            case DialogResult.Yes:
+                            path = pathName();
+                            if (path != "")
+                            {
                                 userResponse = "2";
-                                path = openFile();
-
                                 executeSp(path, userResponse);//EJECUCION DEL SP
+                            }
+                            else
+                            {
+                                //COLOCAR MENSAJE QUE DIGA QUE SELECCIONE UN ARCHIVO
+                            }
 
-                                txtPath.Clear();
+                            txtPath.Clear();
+                        }
+                        else
+                        {
+                            userResponse = "1";
+                            executeSp(txtPath.Text, userResponse);//EJECUCION DEL SP
 
-                                break;
-                            case DialogResult.No:
-                                userResponse = "1";
-
-                                executeSp(txtPath.Text, userResponse);//EJECUCION DEL SP
-
-                                txtPath.Clear();
-                                
-                                break;
+                            txtPath.Clear();
                         }
 
                         break;
 
                     case DialogResult.No:
-                        userResponse = "1";
+                        userResponse = "2";
 
                         executeSp(txtPath.Text, userResponse);//EJECUCION DEL SP
-
 
                         break;
                 }
             }
             else
             {
-                MessageBox.Show("Debe haber una ruta de archivo","Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Debe haber una ruta de archivo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }
